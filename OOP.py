@@ -77,6 +77,7 @@ class Package:
     
 pg001 = Package("Báňská 239, Ostrava", 0.153, "doručen") #objekt mimo třídu, tzn. neodsazen
 pg002 = Package("Vodní 3, Přerov", 21.12, "nedoručen")
+pg003 = Package("Žárová 1289, Hulín", 125.4, "nedoručen")
 
 print(pg001.get_info())
 print(pg002.get_info())
