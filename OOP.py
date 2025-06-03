@@ -45,6 +45,18 @@ class Employee: #název třídy s velkým písmenem
 
     def get_info(self): #metoda get_info vypisuje informace o zaměstnanci
         return f"Zaměstnanec {self.name} pracuje na pozici {self.position}."
+    # def __str__(self): #metoda get_info vypisuje informace o zaměstnanci
+    #     return f"Zaměstnanec {self.name} pracuje na pozici {self.position}."
+        #místo get_info se dá použít __str__, pak bude fungovat print(hruby_k)
+    
+    def take_holiday(self, days):
+        if self.holiday_entitlement >= days:
+            self.holiday_entitlement -= days
+            return f"Máte nárok na dovolenou."
+        else:
+            return f"Bohužel, už máte nárok pouze na {self.holiday_entitlement} dní."
+#print se nedá dát bezprostředně po class, ale až po vytvoření objektů ("naplnění formuláře class informacemi objekt")        
+
     
 ##objekt##
 #vytvoření zaměstnanců s informacemi o nich
@@ -54,6 +66,11 @@ vesela_i = Employee("Ivana Veselá", "prodavačka", 25)
 #zavolání metody get_info
 print(hruby_k.get_info())
 print(vesela_i.get_info())
+
+#zavolání metody take_holiday
+print(hruby_k.take_holiday(5))
+print(hruby_k.take_holiday(30))
+print(hruby_k) #nebude fungovat, pokusí se převést objekt na typ řetězec
 
 
 #vytvoření třídy Package  
@@ -73,7 +90,6 @@ class Package:
             return 159
         else:
             return 359
-    def taken_holiday
     
 pg001 = Package("Báňská 239, Ostrava", 0.153, "doručen") #objekt mimo třídu, tzn. neodsazen
 pg002 = Package("Vodní 3, Přerov", 21.12, "nedoručen")
