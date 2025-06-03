@@ -90,6 +90,13 @@ class Package:
             return 159
         else:
             return 359
+    def deliver(self):
+        #zjistí, jestli byl balíček doručen
+        if self.state == "doručen": #pokud state = doručen, pak vypíše větu
+            return "Balík už byl doručen."
+        else:
+            self.state = "doručen" #pokud state je jiný, tak se state změní na doručen
+            return "Doručení uloženo." #vypíše se věta
     
 pg001 = Package("Báňská 239, Ostrava", 0.153, "doručen") #objekt mimo třídu, tzn. neodsazen
 pg002 = Package("Vodní 3, Přerov", 21.12, "nedoručen")
@@ -97,5 +104,9 @@ pg003 = Package("Žárová 1289, Hulín", 125.4, "nedoručen")
 
 print(pg001.get_info())
 print(pg002.get_info())
+
 print(f"Cena za doručení je {pg002.delivery_price()}.")
 
+print(pg002.deliver()) #ověření stavu doručení balíku, resp. ověření a změna na doručen
+# při druhém zavolání už hlásí dřívější doručení
+print(pg002.get_info()) #ověření, že deliver zafungoval
